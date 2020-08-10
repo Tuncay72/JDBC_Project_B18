@@ -1,7 +1,7 @@
 package com.cybertek.jdbc.day03;
 
 import com.cybertek.jdbc.utility.DB_Utility;
-
+import sun.security.pkcs11.Secmod;
 
 
 public class SpartmanDB_Practice {
@@ -12,7 +12,8 @@ public class SpartmanDB_Practice {
 //      String url = "jdbc:oracle:thin:@54.144.97.46:1521:xe";
 //      DB_Utility.createConnection(url,"SP","SP");
 
-        DB_Utility.createConnection();
+       // DB_Utility.createConnection();
+        DB_Utility.createConnection("dev");
 
 
 //    Run query "SELECT * FROM EMPLOYEES"

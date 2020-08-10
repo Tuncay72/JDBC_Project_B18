@@ -13,10 +13,10 @@ public class DB_Practice {
         DB_Utility.createConnection();
         ResultSet rs = DB_Utility.runQuery("SELECT * FROM JOBS");
         // ITERATE OVER THE RESULTSET
-//        rs.next();
-//        // get first 2 column
-//        System.out.println(  rs.getString(1)  );
-        while(rs.next() ){
+  //     rs.next();
+  //        // get first 2 column
+  //     System.out.println(  rs.getString(1)  );
+        while(rs.next()==true ){
             System.out.println(  rs.getString(1)  );
         }
 

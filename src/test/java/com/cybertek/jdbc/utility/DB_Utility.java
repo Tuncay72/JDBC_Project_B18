@@ -41,6 +41,17 @@ public class DB_Utility {
             System.out.println("ERROR WHILE CONNECTING WITH PARAMETERS");
         }
     }
+    
+    public static void createConnection(String env){
+        String connectionStr = ConfigurationReader.getProperty(env+".database.url");
+        String username = ConfigurationReader.getProperty(env+".database.username");
+        String password =ConfigurationReader.getProperty(env+".database.password");
+
+        createConnection(connectionStr,username,password);
+}
+
+
+
     /*
      * */
     /**
@@ -77,6 +88,7 @@ public class DB_Utility {
             e.printStackTrace();
         }
     }
+
     /**
      * Get the row count of the resultSet
      * @return the row number of the resultset given
@@ -94,7 +106,8 @@ public class DB_Utility {
         }
         return rowCount ;
     }
-    /*
+
+    /**
      * a method to get the column count of the current ResultSet
      *
      *   getColumnCNT()
@@ -236,7 +249,7 @@ public class DB_Utility {
             }
             rs.beforeFirst();
         }catch (SQLException e){
-            System.out.println("ERRROR AT ROW MAP FUNCTION");
+            System.out.println("ERROR AT ROW MAP FUNCTION");
         }
         return rowMap;
     }
@@ -268,7 +281,7 @@ public class DB_Utility {
         // in order to get whole result cursor must be at before first location !
         try {
             // in order to start from beginning , we should be at beforefirst location
-            rs.beforeFirst(); // this is for below loop to work
+          rs.beforeFirst(); // this is for below loop to work
             while (rs.next() == true) { // row iteration
                 for (int i = 1; i <= colCount; i++) { // column iteration
                     System.out.print(rs.getString(i) + "\t");
@@ -277,7 +290,7 @@ public class DB_Utility {
             }
             // now the cursor is at after last location
             // move it back to before first location so we can have no issue calling the method again
-            rs.beforeFirst(); // this is for next method that might need to be at before first location
+         // rs.beforeFirst(); // this is for next method that might need to be at before first location
         } catch (SQLException e) {
             System.out.println("ERROR WHILE GETTING ALL DATA");
             e.printStackTrace();

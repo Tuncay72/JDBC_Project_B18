@@ -12,10 +12,10 @@ public class IteratingPractice {
         String password = "hr";
         Connection conn = DriverManager.getConnection(connectionStr, username, password);
         Statement stmnt = conn.createStatement();
-        ResultSet rs = stmnt.executeQuery("SELECT * FROM COUNTRIES");
+        ResultSet rs = stmnt.executeQuery("SELECT * FROM COUNTRIES ");
 
 
-        while(rs.next()== true){
+        while(rs.next()==true){
             System.out.println(rs.getString(1)+" "
             +rs.getString(2)+" "
             +rs.getString(3));
